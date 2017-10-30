@@ -1,0 +1,46 @@
+{
+  "name": "cmpe281_cloud_project",
+  "version": "1.0.0",
+  "description": "Project for on mobile sensor cluster",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lelea2/CMPE281.git"
+  },
+  "author": "Khanh Dao <kareendao88@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lelea2/CMPE281/issues"
+  },
+  "homepage": "https://github.com/lelea2/CMPE281#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "cookies": "^0.6.1",
+    "csrf-crypto": "^1.0.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "html-minifier": "^3.1.0",
+    "http-proxy": "^1.16.2",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
+    "node-cache": "^4.1.0",
+    "node-uuid": "^1.4.7",
+    "random-ip": "0.0.1",
+    "save": "^2.3.0",
+    "seaport": "^2.0.9",
+    "sequelize": "^3.24.6",
+    "sequelize-cli": "^2.4.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

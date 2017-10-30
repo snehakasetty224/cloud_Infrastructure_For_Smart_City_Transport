@@ -1,0 +1,23 @@
+<link rel="stylesheet" type="text/css" href="../css/payment.css">
+<div ng-controller="paymentController">
+  <form class="form-payment" ng-submit="processPayment()">
+    <h2 class="form-payment-heading">Payment Information</h2>
+    <p>Enter your payment information</p>
+    <label for="inputCardNumber">Card Number</label>
+    <input type="text" id="inputCardNumber" ng-model="formPayment.card_number"  ui-mask="9999-9999-9999-9999" class="form-control"  ui-mask-placeholder ui-mask-placeholder-char="_" required autofocus>
+    <label for="inputCardCode">Card Code</label>
+    <input type="text" id="inputCardCode" ngMaxlength="3" ng-model="formPayment.code" class="form-control" placeholder="Card code" required>
+    <label for="inputCardExp">Card Expiration</label>
+    <input type="text" id="inputCardExp" ng-model="formPayment.expiration_date" class="form-control" ui-mask-placeholder-char="_" ui-mask="99/9999" required>
+    <label for="inputCardName">Card Owner</label>
+    <input type="text" id="inputCardName" ng-model="formPayment.card_onwer" class="form-control" placeholder="Card owner" required>
+    <label for="inputCardAddress">Card Address</label>
+    <input type="text" id="inputCardName" ng-model="formPayment.address" class="form-control" placeholder="Card address" required>
+    <label for="inputCardState">Card State</label>
+    <input type="text" id="inputCardState" ng-model="formPayment.state" class="form-control" placeholder="Card state" required>
+    <label for="inputCardZip">Card Zip</label>
+    <input type="text" id="inputCardZip" ng-model="formPayment.zip" class="form-control" placeholder="Card zip" required>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register Payment</button>
+  </form>
+</div>
+<script src="../js/controllers/payment.js"></script>

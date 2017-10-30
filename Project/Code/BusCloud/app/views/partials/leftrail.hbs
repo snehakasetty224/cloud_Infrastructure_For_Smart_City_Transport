@@ -1,0 +1,68 @@
+<div class="visible-md visible-lg left" role="navigation" ng-controller="leftRailController" data-ng-init="init()">
+  {{{{raw-helper}}}}
+    <div class="welcome-message">
+      <strong><i>Hi, {{accountData.roles}}</i></strong>
+      <p>Khanh Dao</p>
+    </div>
+  {{{{/raw-helper}}}}
+  <div class="sidebar sidebar-nav navbar-collapse">
+    <ul class="nav" id="side-menu">
+      <li>
+        <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Cloud Resource Monitoring <span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          {{#equal _role "admin"}}
+          <li>
+            <a href="/monitor">Sensor Monitoring</a>
+          </li>
+          {{/equal}}
+          {{#equal _role "vendor"}}
+          <li>
+            <a href="/monitor">Sensor Monitoring</a>
+          </li>
+          {{/equal}}
+          <li>
+            <a href="/metering">Sensor Metering</a>
+          </li>
+        </ul>
+      <!-- /.nav-second-level -->
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-wrench fa-fw"></i> Cloud Resource Management<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          {{#equal _role "customer"}}
+          <li>
+            <a href="/vsensors">Manage VSensor</a>
+          </li>
+          <li>
+            <a href="/create_vsensor">Provision VSensor</a>
+          </li>
+          {{else}}
+          <li>
+            <a href="/sensors">Manage Sensor</a>
+          </li>
+          <li>
+            <a href="/create">Provision Sensor</a>
+          </li>
+          {{/equal}}
+        </ul>
+        <!-- /.nav-second-level -->
+      </li>
+      {{#equal _role "admin"}}
+      <li>
+        <a href="/loadbalancing"><i class="fa fa-balance-scale fa-fw"></i> Load Balancing</a>
+      </li>
+      {{/equal}}
+      <li>
+        <a href="/billings"><i class="fa fa-edit fa-fw"></i> Billing</a>
+      </li>
+      <li>
+        <a href="/account"><i class="fa fa-user"></i> Manage Account</a>
+      </li>
+    </ul>
+  </div>
+  <!-- /.sidebar-collapse -->
+</div>
+<script src="../js/controllers/left_rail.js"></script>

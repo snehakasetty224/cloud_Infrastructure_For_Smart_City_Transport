@@ -1,0 +1,166 @@
+<div class="row admin">
+  <div class="col-lg-4 col-md-6">
+    <a href="/monitor">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9 text-right">
+                <div class="medium">Sensor Monitoring</div>
+              </div>
+              <div class="col-xs-3">
+                <i class="fa fa-bar-chart-o fa-3x"></i>
+              </div>
+            </div>
+          </div>
+      </div>
+    </a>
+  </div>
+  <!-- End of Sensor Monitoring -->
+  <div class="col-lg-4 col-md-6">
+    <a href="/metering">
+      <div class="panel panel-green">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-9 text-right">
+              <div class="medium">Sensor Metering</div>
+            </div>
+            <div class="col-xs-3">
+              <i class="fa fa-bar-chart-o fa-3x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <!--  End of Sensor Metering-->
+  <div class="col-lg-4 col-md-6">
+    <a href="/hosts">
+      <div class="panel panel-yellow">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9 text-right">
+                <div class="medium">Add Buses</div>
+              </div>
+              <div class="col-xs-3">
+                <i class="fa fa-wrench fa-3x"></i>
+              </div>
+            </div>
+          </div>
+      </div>
+    </a>
+  </div>
+</div>
+<!-- /.row End of First Row -->
+<div class="row">
+  <div class="col-lg-4 col-md-6">
+    <a href="/sensors">
+      <div class="panel panel-yellow">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-9 text-right">
+              <div class="medium">Manage Sensor</div>
+            </div>
+            <div class="col-xs-3">
+              <i class="fa fa-wrench fa-3x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <!-- End of Manage Sensor -->
+    <div class="col-lg-4 col-md-6">
+      <a href="/create">
+        <div class="panel panel-red">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9 text-right">
+                <div class="medium">Provision Sensor</div>
+              </div>
+              <div class="col-xs-3">
+                <i class="fa fa-wrench fa-3x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- End of Provision Sensor -->
+    <div class="col-lg-4 col-md-6">
+      <a href="/billings">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-9 text-right">
+                <div class="medium">Billing Details</div>
+              </div>
+              <div class="col-xs-3">
+                <i class="fa fa-dashboard fa-3x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!--  End of Billing Details-->
+</div>
+<!-- End of Second Row -->
+<div class="row">
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Registered Vehicle
+      </div>
+      <div class="panel-body">
+        <div id="morris-donut-chart"></div>
+        <!-- <a href="#" class="btn btn-default btn-block">View Details</a> -->
+      </div>
+    </div>
+ </div>
+ <div class="col-lg-4">
+    <div class="panel panel-default">
+       <div class="panel-heading">
+          <i class="fa fa-bar-chart-o fa-fw"></i> Registered Sensors
+       </div>
+       <div class="panel-body">
+          <div id="morris-donut-chart1"></div>
+       </div>
+    </div>
+ </div>
+<div class="col-lg-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Billing Details
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body" style="padding: 0; margin: 0">
+      <div class="table-responsive" style="overflow: auto;height:345px">
+        <table class="table" style="margin-left: 0" id="billing-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Vendors</th>
+              <th>Due Date</th>
+              <th>Billing amount</th>
+              <th>Paid</th>
+            </tr>
+          </thead>
+          {{{{raw-helper}}}}
+          <tbody>
+            <tr ng-repeat="billing in billings">
+              <td>{{$index + 1}}</td>
+              <td>{{billing.User.firstName}}</td>
+              <td>{{displayDate(billing.dueDate)}}</td>
+              <td>{{billing.amount}}</td>
+              <td>{{billing.isPaid}}</td>
+            </tr>
+          </tbody>
+          {{{{/raw-helper}}}}
+        </table>
+      </div>
+    <!-- /.table-responsive -->
+    </div>
+    <!-- /.panel-body -->
+  </div>
+<!-- /.panel -->
+</div>

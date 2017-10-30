@@ -1,0 +1,58 @@
+<link rel="stylesheet" type="text/css" href="../css/signin.css">
+{{{{raw-helper}}}}
+<div ng-controller="signinController">
+  <form class="form-signin" ng-submit="processSignin()" ng-show="signinState">
+    <h2 class="form-signin-heading">Sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" ng-model="formSigninData.email" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" ng-model="formSigninData.password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me" ng-checked="formSigninData.rmbme"> Remember me
+      </label>
+    </div>
+    <p>Don't have an account? <a ng-click="showSignup()">Sign up</a></p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+  </form>
+
+  <form class="form-signup" ng-submit="processSignup()" ng-show="!signinState">
+    <h2 class="form-signup-heading">Sign up</h2>
+    <label>Choose a role:</label>
+    <div class="form-group">
+      <div class="radio">
+        <label>
+          <input type="radio" name="admin" value="admin" ng-model="formSignupData.role">
+            Admin
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="vendor" value="vendor" ng-model="formSignupData.role">
+            Vendor
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="customer" value="customer" ng-model="formSignupData.role">
+            Customer
+        </label>
+      </div>
+    </div>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" ng-model="formSignupData.email" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputFirstName" class="sr-only">First name</label>
+    <input type="text" id="inputFirstName" ng-model="formSignupData.firstName" class="form-control" placeholder="First name" required>
+    <label for="inputLastName" class="sr-only">Last name</label>
+    <input type="text" id="inputLastName" ng-model="formSignupData.lastName" class="form-control" placeholder="Last name" required>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" ng-model="formSignupData.password" class="form-control" placeholder="Password" required>
+    <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+    <input type="password" id="inputConfirmPassword" ng-model="formSignupData.confirm_password" class="form-control" placeholder="Confirmed Password" required>
+    <p class="error" ng-show="errorState">{{errorMessage}}</p>
+    <p>Already has an account? <a ng-click="showSignin()">Sign in</a></p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+</div>
+{{{{/raw-helper}}}}
+<script src="../js/controllers/signin.js"></script>

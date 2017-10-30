@@ -1,0 +1,14 @@
+.form-payment {
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+  display: block;
+}
+
+.form-payment label {
+  margin: 10px 0;
+}
+
+.form-payment button {
+  margin: 15px auto;
+}

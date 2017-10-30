@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="../css/monitor.css" />
+{{> leftrail}}
+<div class="right" ng-controller="monitorController" ng-init="init()">
+  <div id="page-wrapper">
+    <div class="heading-section">
+      <h3>Sensor Monitoring</h3>
+      <p>Here are sensors status details</p>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Hub</th>
+          <th>M-Device</th>
+          <th>Route</th>
+          <th>Sensor</th>
+          <th>Type</th>
+          <th>State</th>
+          <th>Provider</th>
+          <th>Subscription Ratio</th>
+          <th>V-Sensor</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      {{{{raw-helper}}}}
+      <tbody>
+        <tr ng-repeat="monitor in monitors">
+          <td>{{$index + 1}}</td>
+          <td>{{monitor.Sensor.Host.SensorHub.name}}</td>
+          <td>{{monitor.Sensor.Host.name}}</td>
+          <td><a href="{{monitor.Sensor.Host.Route.url}}" target="_blank">{{monitor.Sensor.Host.Route.description}}</a></td>
+          <td>{{monitor.Sensor.name}}</td>
+          <td>{{convertType(monitor.Sensor.type)}}</td>
+          <td>{{monitor.Sensor.status}}</td>
+          <td>{{displayId(monitor.user_id)}}</td>
+          <td>1 : {{monitor.subscription}}</td>
+          <td>{{monitor.VirtualSensor.name}}</td>
+          <td>{{monitor.VirtualSensor.status}}</td>
+        <tr ng-repeat="billing in billings">
+      </tbody>
+      {{{{/raw-helper}}}}
+    </table>
+  </div>
+</div>
+<script src="../js/controllers/monitor.js"></script>

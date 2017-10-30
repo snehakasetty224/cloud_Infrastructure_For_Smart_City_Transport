@@ -1,0 +1,47 @@
+<link rel="stylesheet" type="text/css" href="../css/metering.css" />
+{{> leftrail}}
+<div class="right" ng-controller="meteringController" ng-init="init()">
+  <div class="heading-section">
+    <h3>Sensor Metering</h3>
+    <p>Calculate sensor usage and price</p>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          {{#equal _role "customer"}}
+          {{else}}
+          <th>Sensor</th>
+          {{/equal}}
+          <th>VSensor</th>
+          <th>Usage Data (GB)</th>
+          <th>From Date</th>
+          <th>End Date</th>
+          <th>SLA</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{{{raw-helper}}}}
+        <tr ng-repeat="metering in meterings">
+          <td>{{$index + 1}}</td>
+        {{{{/raw-helper}}}}
+          {{#equal _role "customer"}}
+          {{else}}
+          {{{{raw-helper}}}}
+          <td>{{metering.TransactionManager.Sensor.name}}</td>
+          {{{{/raw-helper}}}}
+          {{/equal}}
+          {{{{raw-helper}}}}
+          <td>{{metering.TransactionManager.VirtualSensor.name}}</td>
+          <td>{{metering.data}}</td>
+          <td>{{displayDate(metering.fromDate)}}</td>
+          <td>{{displayDate(metering.endDate)}}</td>
+          <td>{{metering.TransactionManager.SLA.description}}</td>
+          {{{{/raw-helper}}}}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="../js/controllers/metering.js"></script>

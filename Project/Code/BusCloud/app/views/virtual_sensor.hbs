@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="../css/instances.css">
+{{> leftrail}}
+<div class="right" ng-controller="vsensorsController" data-ng-init="init()">
+  <div class="heading-section">
+    <h3>Available Virtual Sensors</h3>
+    <p>You are using the following virtual sensors</p>
+  </div>
+  <div>
+    {{{{raw-helper}}}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Storage</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="vsensor in vsensors">
+          <td>{{vsensor.name}}</td>
+          <td>{{vconvertType(vsensor.type)}}</td>
+          <td>{{vsensor.description}}</td>
+          <td>{{vsensor.storages}}</td>
+          <td><button ng-click="handleStatus(vsensor.id, vsensor.status, vsensor.sensor_status)" class="btn btn-sm">{{convertStatus(vsensor.status, vsensor.sensor_status)}}</button></td>
+        </tr>
+      </tbody>
+    </table>
+    {{{{/raw-helper}}}}
+  </div>
+  <a class="btn btn-primary" href="/create_vsensor">Create Virtual Sensor</a>
+</div>
+<script src="../js/controllers/vsensor.js"></script>
